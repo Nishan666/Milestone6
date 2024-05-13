@@ -10,8 +10,7 @@ function App() {
   return (
     <>
       <Header />
-      {openCart ? <Cart /> : <Products />}
-      
+      {openCart ? <Cart /> : <Products />} 
     </>
   );
 }

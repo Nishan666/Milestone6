@@ -5,7 +5,8 @@ const CartContext = createContext({ productData: null, cartData: [], openCart: f
 
 const CartProvider = ({ children }) => {
   const [productData, setProductData] = useState(null);
-  const [cartData , setCartData] = useState([])
+  let cart = JSON.parse(localStorage.getItem("CART")) || []
+  const [cartData , setCartData] = useState(cart)
   const [openCart , setOpenCart] = useState(false)
 
   useEffect(() => {
@@ -14,8 +15,6 @@ const CartProvider = ({ children }) => {
     };
     fetchData();
   }, []);
-
-  console.log(productData);
 
   return (
     <CartContext.Provider value={{ productData , cartData , setCartData , openCart , setOpenCart}}>
