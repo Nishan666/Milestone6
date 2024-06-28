@@ -9,15 +9,8 @@ const CartProvider = ({ children }) => {
   const [cartData , setCartData] = useState(cart)
   const [openCart , setOpenCart] = useState(false)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setProductData(await getProducts());
-    };
-    fetchData();
-  }, []);
-
   return (
-    <CartContext.Provider value={{ productData , cartData , setCartData , openCart , setOpenCart}}>
+    <CartContext.Provider value={{ productData , setProductData , cartData , setCartData , openCart , setOpenCart}}>
       {children}
     </CartContext.Provider>
   );
